@@ -26,6 +26,6 @@ export const handler: APIGatewayProxyHandlerV2 = async (
   return {
     statusCode: 200,
     headers: { "Content-Type": "text/plain" },
-    body: `Hello, World! Your request was received at ${event.requestContext.time}.`,
+    body: selectedCar[0],
   };
 };
