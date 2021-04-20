@@ -3,7 +3,7 @@ import { APIGatewayProxyEventV2, APIGatewayProxyHandlerV2 } from "aws-lambda";
 export const handler: APIGatewayProxyHandlerV2 = async (
   event: APIGatewayProxyEventV2
 ) => {
-  const data: object = JSON.parse(event.body);
+  // const data = JSON.parse(event.body);
   const electicCars: Array<unknown> = [
     {
       brand: "Tesla",
@@ -18,9 +18,9 @@ export const handler: APIGatewayProxyHandlerV2 = async (
       model: "EQS",
     },
   ];
-
+  console.log(event.body);
   const selectedCar: Array<unknown> = electicCars.filter(
-    (car) => car.brand === data.brand
+    (car) => car.brand === event.body.brand
   );
 
   return {
